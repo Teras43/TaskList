@@ -42,12 +42,14 @@ body {
 }
 
 #task_list {
+    position: relative;
     background-color: slategray;
     width: 80%;
     margin-left: 10%;
 }
 
 .task_item {
+    position: absolute;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -56,6 +58,7 @@ body {
     padding: 8px 16px 8px 16px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 40px;
+    width: 75vw;
 }
 
 .delete_wrapper {
