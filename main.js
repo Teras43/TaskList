@@ -8,6 +8,7 @@ const taskButton = $("#new_task_button")
 const taskList = $("#task_list")
 
 // Functions
+
 function addTask() {
     const input = taskInput.val()
     const newTaskString = `
@@ -24,7 +25,7 @@ taskList.append(newTask)
 }
 
 const deleteAnimationProperties = {
-    left: "150%",
+    marginLeft: "125%",
     opacity: 0
 }
 
@@ -40,4 +41,4 @@ function animateAway(event) {
 
 // Events
 
-taskButton.click(addTask)
+taskButton.click(addTask);
