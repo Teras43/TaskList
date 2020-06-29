@@ -16,7 +16,7 @@ body {
     height: 50px;
     width: 100%;
     background-color: #333;
-} 
+}
 
 .text_header {
     font-size: 32px;
@@ -33,6 +33,7 @@ body {
     flex: 1;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -44,7 +45,8 @@ body {
 #task_list {
     background-color: slategray;
     width: 80%;
-    margin-left: 10%;
+
+    max-width: 800px;
 }
 
 .task_item {
@@ -70,7 +72,24 @@ img {
 }
 
 .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 40px;
     width: 100%;
     background-color: #333;
 }
+
+.footer_item {
+    height: 25px;
+}
+
+#new_task_input {
+    border-radius: 8px;
+}
+
+#new_task_button {
+    margin-left: 5px;
+    width: 120px;
+}
+

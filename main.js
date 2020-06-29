@@ -1,28 +1,51 @@
 // Variables
-const taskInput = document.getElementById("new_task_input")
-const taskButton = document.getElementById("New_Task_Button")
-const taskList = document.getElementById("task_list")
+// const taskInput = document.getElementById("new_task_input")
+// const taskButton = document.getElementById("new_task_button")
+// const taskList = document.getElementById("task_list")
+
+const taskInput = $("#new_task_input")
+const taskButton = $("#new_task_button")
+const taskList = $("#task_list")
 
 // Functions
+
 function addTask() {
-    const input = taskInput.value
+    const input = taskInput.val()
     const newTaskString = `
         <div class="task_item">
             <p class="task_name">${input}</p>
-            <div class="delete_wrapper" onclick="deleteTask(event)">
+            <div class="delete_wrapper" onclick="animateAway(event)">
                 <img src="./Assets/trashcan.png"/>
             </div>
         </div>
         `
 const newTask = document.createElement("div")
 newTask.innerHTML = newTaskString
-taskList.appendChild(newTask)
+taskList.append(newTask)
+taskInput.val('')
 }
 
-function deleteTask(event) {
-    const target = event.target
-target.parentElement.parentElement.remove()
+const deleteAnimationProperties = {
+    marginLeft: "125%",
+    opacity: 0
+}
+
+function deleteTask(element) {
+element.remove()
+}
+
+function animateAway(event) {
+    const eventTarget = $(event.target)
+    const taskItem = eventTarget.parent().parent()
+    taskItem.animate(deleteAnimationProperties, 1000, () => deleteTask(taskItem))
 }
 
 // Events
-taskButton.addEventListener("click", addTask)
+
+taskButton.click(addTask);
+taskInput.keydown((event) => {
+  if (event.keyCode === 13) {
+    addTask()
+  }
+})
+
