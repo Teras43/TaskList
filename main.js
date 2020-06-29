@@ -22,6 +22,7 @@ function addTask() {
 const newTask = document.createElement("div")
 newTask.innerHTML = newTaskString
 taskList.append(newTask)
+taskInput.val('')
 }
 
 const deleteAnimationProperties = {
@@ -42,3 +43,9 @@ function animateAway(event) {
 // Events
 
 taskButton.click(addTask);
+taskInput.keydown((event) => {
+  if (event.keyCode === 13) {
+    addTask()
+  }
+})
+
